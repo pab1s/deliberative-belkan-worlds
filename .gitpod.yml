@@ -9,5 +9,5 @@ ports:
 - port: 5900
   onOpen: ignore
 tasks:
-- init: cmake . && make
+- init: cmake -DCMAKE_BUILD_TYPE=Debug . && make
   command: ./practica2
