@@ -424,14 +424,19 @@ void lanzar_motor_juego2(MonitorJuego &monitor)
     nucleo_motor_juego(monitor, -1);
   }
 
-  if (monitor.mostrarResultados() and monitor.getLevel() == 2)
+  if (monitor.mostrarResultados() and monitor.getLevel() < 2)
   {
     cout << "Longitud del camino: " << 3001 - monitor.get_entidad(0)->getInstantesPendientes() << endl;
     monitor.setMostrarResultados(false);
   }
-  else if (monitor.mostrarResultados() and monitor.getLevel() == 3)
+  else if (monitor.mostrarResultados() and monitor.getLevel() < 3)
   {
     cout << "Coste de Bateria: " << 3000 - monitor.get_entidad(0)->getBateria() << endl;
+    monitor.setMostrarResultados(false);
+  }
+  else if (monitor.mostrarResultados() and monitor.getLevel() < 4)
+  {
+    cout << "Porcentaje de mapa descubierto: " << monitor.CoincidenciaConElMapa() << endl;
     monitor.setMostrarResultados(false);
   }
   else if (monitor.mostrarResultados())
