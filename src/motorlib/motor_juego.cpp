@@ -236,6 +236,7 @@ bool actuacionNPC(unsigned int entidad, unsigned char celda, Action accion, unsi
     case actWHEREIS: //Esta accion para un lobo es empujar equivalente a un actPUSH
       cout << "Recibido un empujon por un lobo\n";
       bool esta_jugador_delante = monitor.getMapa()->casillaOcupada(entidad) == 0;
+      monitor.get_entidad(0)->seAostio();
       if (esta_jugador_delante){
         pair <int,int> casilla = monitor.getMapa()->NCasillasDelante(entidad,2);
         if (monitor.getMapa()->QuienEnCasilla(casilla.first,casilla.second) == -1 and 
